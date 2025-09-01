@@ -1,0 +1,29 @@
+[project]
+name = "amused-gtk"
+version = "0.1.0"
+description = "GTK Viewer for amused library"
+authors = [{ name = "thecodenomad", email = "codenomad@gmail.com" }]
+license = { text = "GPLv3" }
+readme = "README.md"
+requires-python = ">=3.12,<4.0"
+dependencies = [
+    "numpy (>=1.21.0)",
+    "PyGObject (>=3.42.0)",
+    "bleak (>=0.19.0)",
+    "matplotlib (>=3.10.5,<4.0.0)",
+    "scipy (>=1.16.1,<2.0.0)",
+    "pandas (>=2.3.2,<3.0.0)",
+]
+
+[tool.poetry]
+
+[tool.poetry.group.dev.dependencies]
+pylint = "^3.3.8"
+black = "^25.1.0"
+pytest = "^8.4.1"
+amused = { git = "git@github.com:thecodenomad/amused-py.git", branch = "gen1-reformat" }
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"

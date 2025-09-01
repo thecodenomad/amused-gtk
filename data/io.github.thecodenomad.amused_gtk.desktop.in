@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=amused-gtk
+Exec=amused-gtk
+Icon=io.github.thecodenomad.amused_gtk
+Terminal=false
+Type=Application
+Categories=Utility;
+Keywords=GTK;
+StartupNotify=true
+DBusActivatable=true

@@ -1,0 +1,200 @@
+using Gtk 4.0;
+using Adw 1;
+
+template $FrequencyDisplay: Adw.Bin {
+  Adw.Clamp {
+    Gtk.Box {
+      orientation: vertical;
+      hexpand: true;
+      halign: center;
+      margin-top: 12;
+      spacing: 24;
+
+      Gtk.Box {
+        orientation: horizontal;
+        spacing: 12;
+
+        Gtk.DropDown devices_combo {}
+
+        Gtk.Button scan_button {
+          icon-name: "view-refresh-symbolic";
+          tooltip-text: _("Scan for Devices");
+        }
+
+        Gtk.Button connect_button {
+          icon-name: "processes-symbolic";
+          tooltip-text: _("Connect to Device");
+          sensitive: false;
+        }
+
+        Gtk.Button stop_button {
+          icon-name: "media-playback-stop-symbolic";
+          tooltip-text: _("Disconnect from device");
+          sensitive: false;
+        }
+      }
+
+      Gtk.Label connection_state_label {
+        label: "No connection";
+      }
+
+      // Configuration controls
+      Gtk.Box {
+        orientation: horizontal;
+        spacing: 12;
+        halign: center;
+
+        Gtk.Label {
+          label: "Window (s):";
+        }
+
+        Gtk.SpinButton window_spin {
+          adjustment: Gtk.Adjustment {
+            lower: 10;
+            upper: 60;
+            step-increment: 5;
+            value: 20;
+          };
+
+          digits: 0;
+        }
+
+        Gtk.Label {
+          label: "Point (s):";
+        }
+
+        Gtk.SpinButton point_spin {
+          adjustment: Gtk.Adjustment {
+            lower: 1;
+            upper: 5;
+            step-increment: 1;
+            value: 2;
+          };
+
+          digits: 0;
+        }
+      }
+
+      Gtk.Label {
+        label: "Brain Frequencies (Hz)";
+      }
+
+      Gtk.Box {
+        hexpand: true;
+        orientation: horizontal;
+
+        Gtk.Box {
+          hexpand: true;
+          orientation: vertical;
+  
+           Gtk.Label {
+             label: "Heart Rate";
+           }
+  
+          Gtk.Box heart_rate {
+            hexpand: true;
+            halign: fill;
+            valign: fill;
+            height-request: 200;
+          }
+        }
+        
+         Gtk.Box summary_box {
+           hexpand: true;
+           orientation: vertical;
+           height-request: 150;
+         }
+      }
+      
+      Gtk.Box {
+        hexpand: true;
+        orientation: horizontal;
+
+        Gtk.Box {
+          hexpand: true;
+          orientation: vertical;
+
+           Gtk.Label {
+             label: "Left Temporal (TP9)";
+           }
+
+          Gtk.Box tp9_frequency {
+            hexpand: true;
+            halign: fill;
+            valign: fill;
+            height-request: 200;
+          }
+        }
+
+        Gtk.Box {
+          hexpand: true;
+          orientation: vertical;
+
+           Gtk.Label {
+             label: "Left Frontal (AF7)";
+           }
+
+          Gtk.Box af7_frequency {
+            hexpand: true;
+            halign: fill;
+            valign: fill;
+            height-request: 200;
+          }
+        }
+      }
+
+      Gtk.Box {
+        hexpand: true;
+        orientation: horizontal;
+ 
+        Gtk.Box {
+          hexpand: true;
+          orientation: vertical;
+
+           Gtk.Label {
+             label: "Right Temporal (TP10)";
+           }
+
+          Gtk.Box tp10_frequency {
+            hexpand: true;
+            halign: fill;
+            valign: fill;
+            height-request: 200;
+          }
+        }
+
+        Gtk.Box {
+          hexpand: true;
+          orientation: vertical;
+
+           Gtk.Label {
+             label: "Right Frontal (AF8)";
+           }
+
+          Gtk.Box af8_frequency {
+            hexpand: true;
+            halign: fill;
+            valign: fill;
+            height-request: 200;
+          }
+        }
+      }
+
+      Gtk.Box {
+        hexpand: true;
+        orientation: vertical;
+
+         Gtk.Label {
+           label: "Overall State";
+         }
+
+        Gtk.Box overall_state {
+          hexpand: true;
+          halign: fill;
+          valign: fill;
+          height-request: 200;
+        }
+      }
+    }
+  }
+}
