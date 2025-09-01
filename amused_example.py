@@ -23,19 +23,9 @@ from collections import deque
 from typing import List, Dict, Optional, Any
 
 # Import amused-py SDK components
-try:
-    from amused.muse_client import MuseStreamClient
-except ImportError as e:
-    print(f"Error importing amused-py SDK: {e}")
-    print("Please install amused-py: pip install git+https://github.com/thecodenomad/amused-py.git")
-    sys.exit(1)
+from amused.muse_client import MuseStreamClient
 
-# Import numpy for signal processing
-try:
-    import numpy as np
-except ImportError:
-    print("Warning: numpy not available, some features may not work")
-    np = None
+import numpy as np
 
 # Logging configuration
 logging.basicConfig(
